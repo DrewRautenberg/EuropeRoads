@@ -25,6 +25,7 @@
  *      called method (printToFile).
  *****************************************************************************/
 package europeroads;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -39,18 +40,17 @@ public class EuropeRoads {
 
         PrintWriter outFile = new PrintWriter("DistanceMatrix.txt");
         //--------------------------------------- INTERNAL STORAGE DECLARATIONS
-        String strN = "";
-        int n = 0;
+        String strN;
+        int n;
         // Before declaring arrays, need to read in n from RawNameData file,
         //      so you know arrays' sizes
 
-        strN=nameFile.nextLine();
-        n=Integer.parseInt(strN);
+        strN = nameFile.nextLine();
+        n = Integer.parseInt(strN);
 
-        String[] name = new String[n];           // don't need to store names
+        //String[] name = new String[n];           // don't need to store names
         String[] abbr = new String[n];
         int[][] distance = new int[abbr.length][abbr.length];
-
 
 
         //----------------------------------------------- FILL ARRAYS WITH DATA
@@ -65,12 +65,12 @@ public class EuropeRoads {
 
         // VARIABLES NEEDED:
         String line;
-        String[] field= new String[5];     // though only need 2 for this part
-        String abbreviation;
+        String[] field;     // though only need 2 for this part
+        //String abbreviation;
 
         // WRITE CODE HERE to do fill abbr array
-        for (int i=0; i<n;i++) {
-             line = nameFile.nextLine();
+        for (int i = 0; i < n; i++) {
+            line = nameFile.nextLine();
             field = line.split(" - ");
             abbr[i] = field[1];
         }
@@ -102,19 +102,19 @@ public class EuropeRoads {
         int cityA;
         int cityB;
         int miles;
-        for (int i=0;i<abbr.length;i++) {
+        for (String anAbbr : abbr) {
             line = distFile.nextLine();
             field = line.split(" ");
-            cityA=Integer.parseInt(field[0]);
-            cityB=Integer.parseInt(field[1]);
-            miles=Integer.parseInt(field[2]);
-            distance[cityA][cityB]=miles;
-            distance[cityB][cityA]=miles;
+            cityA = Integer.parseInt(field[0]);
+            cityB = Integer.parseInt(field[1]);
+            miles = Integer.parseInt(field[2]);
+            distance[cityA][cityB] = miles;
+            distance[cityB][cityA] = miles;
         }
 
         // ------------------------------------------------------- PRINT MATRIX
-        PrintMatrix.printToScreen(abbr,distance);
-        PrintMatrix.printToFile(abbr,distance,outFile);
+        PrintMatrix.printToScreen(abbr, distance);
+        PrintMatrix.printToFile(abbr, distance, outFile);
         // -------------------------------------------------------- CLOSE FILES
         nameFile.close();
         distFile.close();

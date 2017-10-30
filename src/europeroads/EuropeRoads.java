@@ -102,7 +102,7 @@ public class EuropeRoads {
         int cityA;
         int cityB;
         int miles;
-        for (int i=0;i<37;i++) {
+        for (int i=0;i<abbr.length;i++) {
             line = distFile.nextLine();
             field = line.split(" ");
             cityA=Integer.parseInt(field[0]);

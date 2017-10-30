@@ -31,5 +31,16 @@ public class PrintMatrix {
     public static void printToFile(String[] abbr, int[][] dist,
                                    PrintWriter file)     throws IOException {
 
+       file.print("     ");                              // HEADER LINE
+        for (int i = 0; i < abbr.length; i++)
+            file.printf("%5s",abbr[i]);
+        file.println();
+        // DETAIL LINES
+        for (int row = 0; row < dist.length; row++) {
+            file.printf("%5s",abbr[row]);
+            for (int col = 0; col < dist[0].length; col++)
+                file.printf("%5d",dist[row][col]);
+            file.println();
+        }
     }
 }

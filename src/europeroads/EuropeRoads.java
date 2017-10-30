@@ -51,6 +51,8 @@ public class EuropeRoads {
         String[] abbr = new String[n];
         int[][] distance = new int[abbr.length][abbr.length];
 
+
+
         //----------------------------------------------- FILL ARRAYS WITH DATA
         // step 1 - fill abbr array with data from RawNameData file
         //      INSIDE-OUT DESIGN HELP:
@@ -67,10 +69,11 @@ public class EuropeRoads {
         String abbreviation;
 
         // WRITE CODE HERE to do fill abbr array
-
-
-
-
+        for (int i=0; i<n;i++) {
+             line = nameFile.nextLine();
+            field = line.split(" - ");
+            abbr[i] = field[1];
+        }
 
         // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
         // step 2a - initialize matrix with all -1's

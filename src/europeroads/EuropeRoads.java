@@ -44,12 +44,10 @@ public class EuropeRoads {
         // Before declaring arrays, need to read in n from RawNameData file,
         //      so you know arrays' sizes
 
-        // WRITE CODE HERE to get n
+        strN=nameFile.nextLine();
+        n=Integer.parseInt(strN);
 
-
-
-
-//        String[] name = new String[n];           // don't need to store names
+        String[] name = new String[n];           // don't need to store names
         String[] abbr = new String[n];
         int[][] distance = new int[abbr.length][abbr.length];
 
@@ -59,7 +57,7 @@ public class EuropeRoads {
         //      A) for a SINGLE record, do this:
         //          1) read a single line from the file
         //          2) split it into 2 fields (though we don't care about name)
-        //          3) store abbreveviation in the array in spot [i]
+        //          3) store abbreviation in the array in spot [i]
         //      B) THEN, this single-record handling needs to be inside a LOOP
         //          for handling ALL data in RawNameData file
 

@@ -102,12 +102,15 @@ public class EuropeRoads {
         int cityA;
         int cityB;
         int miles;
-
-        // WRITE CODE HERE  to do step 2c
-
-
-
-
+        for (int i=0;i<37;i++) {
+            line = distFile.nextLine();
+            field = line.split(" ");
+            cityA=Integer.parseInt(field[0]);
+            cityB=Integer.parseInt(field[1]);
+            miles=Integer.parseInt(field[2]);
+            distance[cityA][cityB]=miles;
+            distance[cityB][cityA]=miles;
+        }
 
         // ------------------------------------------------------- PRINT MATRIX
         PrintMatrix.printToScreen(abbr,distance);
